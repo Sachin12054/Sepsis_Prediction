@@ -1,0 +1,90 @@
+SEPSIS PREDICTION MODEL - COMPREHENSIVE VALIDATION REPORT
+================================================================================
+Generated on: 2025-10-09 03:53:28
+Feature type: STFT-enhanced
+Number of models evaluated: 7
+
+EXECUTIVE SUMMARY
+----------------------------------------
+Best overall model: final_best_model
+Clinical utility score: 1.0000
+Sensitivity: 1.0000
+Specificity: 1.0000
+
+CLINICAL PERFORMANCE ANALYSIS
+--------------------------------------------------
+Key Clinical Metrics:
+  final_best_model:
+    Sensitivity: 1.0000
+    Specificity: 1.0000
+    PPV: 1.0000
+    NPV: 1.0000
+  ensemble_votingsoft:
+    Sensitivity: 1.0000
+    Specificity: 1.0000
+    PPV: 1.0000
+    NPV: 1.0000
+  base_model_xgboost:
+    Sensitivity: 1.0000
+    Specificity: 0.9286
+    PPV: 0.5000
+    NPV: 1.0000
+  base_model_lightgbm:
+    Sensitivity: 1.0000
+    Specificity: 0.9286
+    PPV: 0.5000
+    NPV: 1.0000
+  base_model_logisticregression:
+    Sensitivity: 1.0000
+    Specificity: 1.0000
+    PPV: 1.0000
+    NPV: 1.0000
+  final_sepsis_prediction_model:
+    Sensitivity: 1.0000
+    Specificity: 1.0000
+    PPV: 1.0000
+    NPV: 1.0000
+  xgboost_with_stft_model:
+    Sensitivity: 1.0000
+    Specificity: 0.9286
+    PPV: 0.5000
+    NPV: 1.0000
+
+Models meeting high sensitivity requirement (>=0.85):
+  - final_best_model (Sensitivity: 1.0000)
+  - ensemble_votingsoft (Sensitivity: 1.0000)
+  - base_model_xgboost (Sensitivity: 1.0000)
+  - base_model_lightgbm (Sensitivity: 1.0000)
+  - base_model_logisticregression (Sensitivity: 1.0000)
+  - final_sepsis_prediction_model (Sensitivity: 1.0000)
+  - xgboost_with_stft_model (Sensitivity: 1.0000)
+
+TEMPORAL VALIDATION ANALYSIS
+---------------------------------------------
+Temporal stability analysis:
+  final_best_model: ROC-AUC 0.7667 +/- 0.0882
+  ensemble_votingsoft: ROC-AUC 0.6787 +/- 0.2029
+  base_model_lightgbm: ROC-AUC 0.3833 +/- 0.1453
+  base_model_logisticregression: ROC-AUC 0.7667 +/- 0.0882
+  final_sepsis_prediction_model: ROC-AUC 0.6787 +/- 0.2029
+
+FAIRNESS AND BIAS ANALYSIS
+----------------------------------------
+
+ROBUSTNESS AND STABILITY ANALYSIS
+---------------------------------------------
+
+MODEL CALIBRATION ANALYSIS
+----------------------------------------
+
+
+CLINICAL DEPLOYMENT RECOMMENDATIONS
+--------------------------------------------------
+Recommended models for clinical deployment:
+1. Primary recommendation: final_best_model
+   - Highest clinical utility score: 1.0000
+   - Balanced performance across metrics
+
+
+VALIDATION COMPLETED SUCCESSFULLY
+================================================================================

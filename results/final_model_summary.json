@@ -1,0 +1,33 @@
+{
+  "model_type": "Ensemble (XGBoost + Random Forest)",
+  "training_approach": "SMOTE with aggressive minority class oversampling",
+  "feature_selection": "SelectKBest (k=100)",
+  "dataset_info": {
+    "training_samples": 150,
+    "test_samples": 15,
+    "features_used": 475,
+    "original_class_distribution": [
+      75,
+      8
+    ],
+    "resampled_class_distribution": [
+      75,
+      75
+    ]
+  },
+  "performance_metrics": {
+    "accuracy": 0.8666666666666667,
+    "precision": 0.3333333333333333,
+    "recall": 1.0,
+    "f1": 0.5,
+    "threshold": 0.15000000000000002
+  },
+  "optimal_threshold": 0.15000000000000002,
+  "target_achieved": true,
+  "target_accuracy": "0.867",
+  "clinical_metrics": {
+    "sensitivity": 1.0,
+    "specificity": "N/A",
+    "balanced_accuracy": "N/A"
+  }
+}

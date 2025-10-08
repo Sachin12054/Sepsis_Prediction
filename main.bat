@@ -4,13 +4,13 @@ color 0A
 
 cls
 echo =========================================================================
-echo            SEPSIS PREDICTION SYSTEM - COMPLETE SOLUTION
+echo            SEPSIS PREDICTION SYSTEM - REAL STFT MODELS
 echo =========================================================================
 echo.
-echo Main Model: ensemble_learning_pipeline.ipynb
+echo Main Model: Real STFT-Trained Ensemble Models (GradientBoosting)
 echo Web Dashboard: sepsis_dashboard_live.html  
 echo Backend Server: dashboard_server.py
-echo AI Engine: Hospital-Approved Ensemble (100%% Sensitivity)
+echo AI Engine: Hospital-Approved Ensemble (536 STFT Features)
 echo.
 echo =========================================================================
 echo.
@@ -53,7 +53,7 @@ echo SYSTEM OPTIONS:
 echo.
 echo 1. Launch Complete Web System (Dashboard + Backend)
 echo 2. Launch Enhanced System with Butterworth Filtering
-echo 3. Train/Run Main Ensemble Model 
+echo 3. Run Production Sepsis Model 
 echo 4. Quick Model Test and Validation
 echo 5. Butterworth Integration Demo
 echo 6. Generate Performance Report
@@ -116,7 +116,7 @@ echo    Backend API: http://localhost:5000
 echo    Health Check: http://localhost:5000/api/health
 echo.
 echo FEATURES:
-echo    - Upload CSV files (532 STFT features per patient)
+echo    - Upload CSV files (536 STFT features per patient)
 echo    - Test with sample data scenarios
 echo    - Real-time AI predictions
 echo    - Download detailed reports
@@ -179,7 +179,7 @@ echo    - Clinical-grade signal filtering
 echo    - Enhanced STFT feature extraction
 echo    - Improved noise reduction
 echo    - Better sepsis/healthy discrimination
-echo    - 532 enhanced features per patient
+echo    - 536 enhanced features per patient
 echo.
 echo CLINICAL BENEFITS:
 echo    - Maintains 100%% sensitivity for patient safety
@@ -267,7 +267,7 @@ if os.path.exists('models/clinical_sepsis_model.pkl'):
     print()
     
     print('RUNNING PREDICTION TEST:')
-    test_features = np.random.randn(5, 532)
+    test_features = np.random.randn(5, 536)
     
     try:
         probabilities = model['model'].predict_proba(test_features)[:, 1]
@@ -418,11 +418,11 @@ echo.
 echo QUICK START:
 echo    1. Select option 1 to launch web system
 echo    2. Open dashboard in browser
-echo    3. Upload CSV with 532 STFT features
+echo    3. Upload CSV with 536 STFT features
 echo    4. Get real-time sepsis predictions
 echo.
 echo DATA FORMAT:
-echo    - CSV files with 532 columns (STFT features)
+echo    - CSV files with 536 columns (STFT features)
 echo    - One patient per row
 echo    - Numerical values only
 echo    - No headers required

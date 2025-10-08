@@ -1,0 +1,26 @@
+{
+  "generation_date": "2025-10-09T04:47:58.648216",
+  "total_patients": 100,
+  "sepsis_patients": 50,
+  "healthy_patients": 50,
+  "features_per_patient": 536,
+  "feature_types": {
+    "vital_signs": 6,
+    "stft_features": 520,
+    "derived_features": 10
+  },
+  "files_created": [
+    "complete_test_dataset.csv",
+    "sepsis_patients_only.csv",
+    "healthy_patients_only.csv",
+    "quick_test_sample.csv",
+    "api_test_sepsis.csv",
+    "api_test_healthy.csv"
+  ],
+  "usage_instructions": {
+    "dashboard_testing": "Upload any CSV file to the dashboard",
+    "api_testing": "Use api_test_*.csv files for API endpoints",
+    "model_validation": "Use complete_test_dataset.csv for full validation",
+    "quick_demo": "Use quick_test_sample.csv for demonstrations"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "models": {
+    "RandomForest_Demo_v1.0.0": {
+      "model_id": "RandomForest_Demo_v1.0.0",
+      "model_name": "RandomForest_Demo",
+      "version": "1.0.0",
+      "model_path": "production_pipeline\\models\\RandomForest_Demo_production.pkl",
+      "model_hash": "08978a1170ce2a0052700103919662b09a4c5f29f50fb5cbb7f2e31fd6cca35c",
+      "registered_at": "2025-10-09T04:04:52.066687",
+      "metadata": {
+        "algorithm_type": "RandomForestClassifier",
+        "source_notebook": "demo",
+        "performance_tested": true,
+        "clinical_validated": false,
+        "production_ready": true,
+        "note": "Demo model for pipeline testing"
+      },
+      "status": "active"
+    },
+    "LogisticRegression_Demo_v1.0.0": {
+      "model_id": "LogisticRegression_Demo_v1.0.0",
+      "model_name": "LogisticRegression_Demo",
+      "version": "1.0.0",
+      "model_path": "production_pipeline\\models\\LogisticRegression_Demo_production.pkl",
+      "model_hash": "d6d0ded31a58b093c861244764c313c27460b7a29cb26aa165b419aa528faf91",
+      "registered_at": "2025-10-09T04:04:52.084667",
+      "metadata": {
+        "algorithm_type": "LogisticRegression",
+        "source_notebook": "demo",
+        "performance_tested": true,
+        "clinical_validated": false,
+        "production_ready": true,
+        "note": "Demo model for pipeline testing"
+      },
+      "status": "active"
+    }
+  },
+  "versions": {
+    "RandomForest_Demo": [
+      "1.0.0",
+      "1.0.0"
+    ],
+    "LogisticRegression_Demo": [
+      "1.0.0",
+      "1.0.0"
+    ]
+  },
+  "metadata": {
+    "created_at": "2025-10-09T03:53:40.836441",
+    "last_updated": "2025-10-09T04:04:52.084667"
+  }
+}
