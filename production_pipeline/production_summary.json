@@ -1,0 +1,30 @@
+{
+  "pipeline_name": "Sepsis Prediction Production Pipeline",
+  "version": "1.0.0",
+  "created_date": "2025-10-08T19:35:43.572799",
+  "components": {
+    "model_deployed": true,
+    "api_created": true,
+    "validation_passed": true,
+    "documentation_generated": true
+  },
+  "performance_metrics": {
+    "roc_auc": 0.9286,
+    "accuracy": 0.8667,
+    "sensitivity": 1.0,
+    "specificity": 0.857
+  },
+  "clinical_features": {
+    "risk_level_classification": true,
+    "real_time_prediction": true,
+    "clinical_decision_support": true,
+    "monitoring_alerts": true
+  },
+  "deployment_ready": true,
+  "files_created": [
+    "production_pipeline/models/sepsis_model.pkl",
+    "production_pipeline/models/model_metadata.json",
+    "production_pipeline/api.py",
+    "production_pipeline/validation_results.json"
+  ]
+}

@@ -1,0 +1,5 @@
+Model,Accuracy,Precision,Recall,Sensitivity,Specificity,F1_Score,ROC_AUC,True_Positives,True_Negatives,False_Positives,False_Negatives,Clinical_Score
+stacking,0.8666666666666667,0.0,0.0,0.0,1.0,0.0,0.5384615384615384,0,13,0,2,0.4153846153846154
+voting_hard,0.8666666666666667,0.0,0.0,0.0,1.0,0.0,0.5,0,13,0,2,0.4
+voting_soft,0.8666666666666667,0.0,0.0,0.0,1.0,0.0,0.5,0,13,0,2,0.4
+adaboost,0.8666666666666667,0.0,0.0,0.0,1.0,0.0,0.3076923076923077,0,13,0,2,0.3230769230769231

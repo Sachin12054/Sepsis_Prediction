@@ -1,0 +1,15 @@
+clinical_thresholds:
+  high: 0.8
+  low: 0.3
+  medium: 0.6
+model_version: 1.0.0
+monitoring:
+  alert_thresholds:
+    data_drift: 0.1
+    performance_drop: 0.05
+    prediction_rate_change: 0.2
+  interval_seconds: 3600
+performance_thresholds:
+  min_roc_auc: 0.8
+  min_sensitivity: 0.85
+  min_specificity: 0.7

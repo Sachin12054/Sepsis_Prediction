@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-10-08T19:35:14.179175",
+  "validation_status": "PASS",
+  "checks": {
+    "model_loading": {
+      "status": "PASS",
+      "model_type": "<class 'sklearn.linear_model._logistic.LogisticRegression'>",
+      "expected_features": 40,
+      "message": "Model loaded successfully"
+    },
+    "data_preprocessing": {
+      "status": "PASS",
+      "available_features": 537,
+      "model_features": 40,
+      "test_samples": 15,
+      "message": "Data preprocessing successful"
+    },
+    "prediction_pipeline": {
+      "status": "PASS",
+      "predictions_count": 15,
+      "sepsis_predictions": 3,
+      "avg_probability": 0.2857710954519342,
+      "max_probability": 0.7649902410513488,
+      "min_probability": 0.011524200744785438,
+      "message": "Prediction pipeline working"
+    },
+    "performance_validation": {
+      "status": "PASS",
+      "roc_auc": 0.9285714285714286,
+      "accuracy": 0.8666666666666667,
+      "performance_threshold": 0.8,
+      "message": "Model performance: AUC=0.9286, Accuracy=0.8667"
+    },
+    "model_deployment": {
+      "status": "PASS",
+      "model_path": "production_pipeline/models/sepsis_model.pkl",
+      "metadata_path": "production_pipeline/models/model_metadata.json",
+      "message": "Production model deployed successfully"
+    }
+  }
+}

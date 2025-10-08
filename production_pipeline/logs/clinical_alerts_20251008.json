@@ -1,0 +1,26 @@
+[
+  {
+    "alert_id": "45ec7f76-c62a-4fc6-9773-4d761642ea6c",
+    "patient_id": "TEST_PATIENT",
+    "timestamp": "2025-10-08T19:34:27.125964",
+    "risk_level": "high",
+    "sepsis_probability": 0.3904448602144065,
+    "confidence": 1.0,
+    "recommendation": {
+      "message": "High sepsis risk - immediate attention required",
+      "actions": [
+        "Immediate physician notification",
+        "Obtain blood cultures",
+        "Complete metabolic panel",
+        "Consider empirical antibiotics",
+        "Lactate level"
+      ],
+      "follow_up": "1 hour"
+    },
+    "requires_immediate_action": true,
+    "prediction_details": {
+      "prediction": 0,
+      "probability": 0.3904448602144065,
+      "risk_level": "high",
+      "individual_predictions": {
+        "RandomForest_Demo": 
