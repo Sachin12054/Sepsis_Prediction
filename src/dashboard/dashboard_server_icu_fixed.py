@@ -20,7 +20,7 @@ import os
 import sys
 
 # Import our ICU converter
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../data_processing'))
 from icu_data_converter import ICUDataConverter
 
 app = Flask(__name__)
@@ -35,10 +35,10 @@ def load_models():
     
     print("🔄 Loading ensemble models...")
     model_files = {
-        'best_ensemble': 'ensemble_models/final_best_model.pkl',
-        'stacking_ensemble': 'ensemble_models/ensemble_stacking.pkl',
-        'voting_soft': 'ensemble_models/ensemble_votingsoft.pkl',
-        'adaboost_ensemble': 'ensemble_models/ensemble_adaboost.pkl'
+        'best_ensemble': '../../ensemble_models/final_best_model.pkl',
+        'stacking_ensemble': '../../ensemble_models/ensemble_stacking.pkl',
+        'voting_soft': '../../ensemble_models/ensemble_votingsoft.pkl',
+        'adaboost_ensemble': '../../ensemble_models/ensemble_adaboost.pkl'
     }
     
     for name, path in model_files.items():

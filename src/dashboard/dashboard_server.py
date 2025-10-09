@@ -36,7 +36,8 @@ def after_request(response):
 class SepsisPredictionAPI:
     def __init__(self):
         self.model = None
-        self.model_path = "models/clinical_sepsis_model.pkl"
+        # Updated path to models directory from new location
+        self.model_path = "../../models/clinical_sepsis_model.pkl"
         self.load_model()
     
     def load_model(self):
@@ -380,19 +381,23 @@ api = SepsisPredictionAPI()
 def dashboard():
     """Serve the enhanced dashboard HTML"""
     try:
-        with open('enhanced_dashboard.html', 'r', encoding='utf-8') as f:
+        with open('../../web/enhanced_dashboard.html', 'r', encoding='utf-8') as f:
             return f.read()
     except FileNotFoundError:
         return '''
         <h1>Enhanced Dashboard Not Found</h1>
-        <p>Please ensure enhanced_dashboard.html exists in the project directory.</p>
+        <p>Please ensure enhanced_dashboard.html exists in the web directory.</p>
         <a href="/old">Use Old Dashboard</a>
         '''
 
 @app.route('/old')
 def old_dashboard():
     """Serve the original dashboard HTML"""
-    return app.send_static_file('sepsis_dashboard.html')
+    try:
+        with open('../../web/sepsis_dashboard.html', 'r', encoding='utf-8') as f:
+            return f.read()
+    except FileNotFoundError:
+        return '<h1>Original Dashboard Not Found</h1><p>Please check web directory.</p>'
 
 @app.route('/api/model_info')
 def model_info():

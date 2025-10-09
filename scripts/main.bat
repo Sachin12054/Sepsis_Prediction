@@ -15,7 +15,7 @@ echo.
 echo =========================================================================
 echo.
 
-cd /d "%~dp0"
+cd /d "%~dp0\.."
 
 if not exist "ensemble_learning_pipeline.ipynb" (
     echo ERROR: Main model file not found!
@@ -85,7 +85,7 @@ echo.
 
 echo [1/4] Creating clinical model if needed...
 if not exist "models\clinical_sepsis_model.pkl" (
-    python create_model.py
+    python src\models\create_model.py
     echo Model created successfully.
 ) else (
     echo Model already exists.
@@ -93,7 +93,7 @@ if not exist "models\clinical_sepsis_model.pkl" (
 echo.
 
 echo [2/4] Starting backend server...
-start /MIN cmd /c "python dashboard_server.py"
+start /MIN cmd /c "python src\dashboard\dashboard_server.py"
 echo Backend server started on http://localhost:5000
 echo.
 
@@ -102,7 +102,7 @@ timeout /t 8 /nobreak >nul
 echo.
 
 echo [4/4] Opening web dashboard...
-start "" "sepsis_dashboard_live.html"
+start "" "web\sepsis_dashboard_live.html"
 echo Dashboard opened in browser
 echo.
 

@@ -77,8 +77,8 @@ def create_clinical_model():
     }
 
     # Save model
-    os.makedirs('models', exist_ok=True)
-    joblib.dump(clinical_model, 'models/clinical_sepsis_model.pkl')
+    os.makedirs('../../models', exist_ok=True)
+    joblib.dump(clinical_model, '../../models/clinical_sepsis_model.pkl')
     print('Clinical model created and saved successfully!')
 
 if __name__ == "__main__":

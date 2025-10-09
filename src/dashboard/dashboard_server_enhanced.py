@@ -16,7 +16,7 @@ import warnings
 import sys
 
 # Add signal processing module to path
-sys.path.append(os.path.join(os.path.dirname(__file__), 'signal_processing'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../signal_processing'))
 
 try:
     from signal_processing.enhanced_stft_integration import EnhancedSTFTProcessor, predict_with_butterworth_enhancement
@@ -42,8 +42,9 @@ class EnhancedSepsisPredictionAPI:
     def __init__(self):
         self.model = None
         self.enhanced_model = None
-        self.model_path = "models/clinical_sepsis_model.pkl"
-        self.enhanced_model_path = "models/enhanced_butterworth_sepsis_model.pkl"
+        # Updated paths for new directory structure
+        self.model_path = "../../models/clinical_sepsis_model.pkl"
+        self.enhanced_model_path = "../../models/enhanced_butterworth_sepsis_model.pkl"
         self.butterworth_processor = None
         
         self.load_models()
@@ -167,7 +168,11 @@ api = EnhancedSepsisPredictionAPI()
 @app.route('/')
 def dashboard():
     """Serve the dashboard HTML"""
-    return app.send_static_file('sepsis_dashboard_live.html')
+    try:
+        with open('../../web/sepsis_dashboard_live.html', 'r', encoding='utf-8') as f:
+            return f.read()
+    except FileNotFoundError:
+        return '<h1>Dashboard Not Found</h1><p>Please check web directory for sepsis_dashboard_live.html</p>'
 
 @app.route('/api/model_info')
 def model_info():
