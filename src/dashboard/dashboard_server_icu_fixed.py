@@ -78,19 +78,63 @@ def detect_file_format(file_content):
     return 'unknown'
 
 def process_csv_file(file_content):
-    """Process standard CSV test file (536 features from 543 columns)"""
+    """Process standard CSV test file - handles both 532 and 543 column formats"""
     try:
         # Convert to pandas DataFrame
         from io import StringIO
         df = pd.read_csv(StringIO(file_content))
         
-        # Should have 543 columns (7 metadata + 536 features)
-        if df.shape[1] != 543:
-            return None, f"CSV file should have 543 columns (7 metadata + 536 features), found {df.shape[1]}"
+        print(f"📊 CSV file has {df.shape[1]} columns")
         
-        # Extract feature columns (skip first 7 metadata columns)
-        features_df = df.iloc[:, 7:]  # Skip metadata columns
-        features = features_df.values
+        # Handle different CSV formats
+        if df.shape[1] == 543:
+            # Format with 7 metadata + 536 features
+            print("✅ Processing 543-column format (7 metadata + 536 features)")
+            features_df = df.iloc[:, 7:]  # Skip first 7 metadata columns
+        elif df.shape[1] == 532:
+            # Format with only 532 STFT features (no metadata columns)
+            print("✅ Processing 532-column format (532 STFT features)")
+            features_df = df  # Use all columns as features
+            # Pad to 536 features if needed
+            if features_df.shape[1] < 536:
+                padding_cols = 536 - features_df.shape[1]
+                padding = np.zeros((features_df.shape[0], padding_cols))
+                features_df = np.concatenate([features_df.values, padding], axis=1)
+                print(f"📊 Padded from {532} to {536} features")
+        elif df.shape[1] == 536:
+            # Format with exactly 536 features
+            print("✅ Processing 536-column format (536 STFT features)")
+            features_df = df  # Use all columns as features
+        else:
+            # Handle other formats by extracting numeric columns
+            print(f"⚠️  Unexpected column count: {df.shape[1]}, attempting automatic processing")
+            
+            # Try to identify and extract numeric feature columns
+            numeric_cols = df.select_dtypes(include=[np.number]).columns
+            
+            if len(numeric_cols) >= 500:  # Assume these are STFT features
+                features_df = df[numeric_cols]
+                print(f"📊 Extracted {len(numeric_cols)} numeric feature columns")
+                
+                # Adjust to 536 features
+                if features_df.shape[1] < 536:
+                    padding_cols = 536 - features_df.shape[1]
+                    padding = np.zeros((features_df.shape[0], padding_cols))
+                    features_df = np.concatenate([features_df.values, padding], axis=1)
+                    print(f"📊 Padded from {len(numeric_cols)} to {536} features")
+                elif features_df.shape[1] > 536:
+                    features_df = features_df.iloc[:, :536]  # Take first 536 features
+                    print(f"📊 Truncated from {len(numeric_cols)} to {536} features")
+            else:
+                return None, f"Unsupported CSV format: {df.shape[1]} columns found. Expected 532, 536, or 543 columns."
+        
+        # Ensure features is numpy array
+        if not isinstance(features_df, np.ndarray):
+            features = features_df.values
+        else:
+            features = features_df
+            
+        print(f"✅ Final feature array shape: {features.shape}")
         
         return features, None
     except Exception as e:
